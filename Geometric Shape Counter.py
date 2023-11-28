@@ -33,17 +33,14 @@ class GeometricShapeCounter:
             "thickness": thickness,
             "fontColor": fontColor
         }
-        # JSON dosyasını oku
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
 
-        # Belirtilen anahtarı ve yeni değeri güncelle
         if key in data:
             data[key] = new_value
         else:
             print(f"Error: Key '{key}' not found in the JSON file.")
 
-        # Güncellenmiş JSON verisini dosyaya yaz
         with open(json_file_path, 'w') as json_file:
             json.dump(data, json_file, indent=4)
 
@@ -136,7 +133,6 @@ class GeometricShapeCounter:
         if withText:
             cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
 
-    @CatchException
     def drawContours(self, img, eps=0.031, thresh=170, maxVal=255, closed=True, withText=True, withColor=True,
                      withLog=True):
         contours = self.__findContours(img, thresh=thresh, maxVal=maxVal)
@@ -168,6 +164,6 @@ class GeometricShapeCounter:
 
 
 #fileName = "shapes.png
-fileName = ""
+fileName = "shapes.png"
 gsc = GeometricShapeCounter(fileName)
 gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
