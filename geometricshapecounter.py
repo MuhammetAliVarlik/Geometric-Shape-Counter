@@ -136,7 +136,6 @@ class GeometricShapeCounter:
         if withText:
             cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
 
-    @CatchException
     def drawContours(self, img, eps=0.031, thresh=170, maxVal=255, closed=True, withText=True, withColor=True,
                      withLog=True):
         contours = self.__findContours(img, thresh=thresh, maxVal=maxVal)
@@ -167,7 +166,7 @@ class GeometricShapeCounter:
         return img
 
 
-#fileName = "shapes.png
-fileName = ""
-gsc = GeometricShapeCounter(fileName)
-gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
+# #fileName = "shapes.png
+# fileName = ""
+# gsc = GeometricShapeCounter(fileName)
+# gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
