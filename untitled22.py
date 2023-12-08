@@ -31,8 +31,6 @@ except:
 label1 = customtkinter.CTkLabel(master=frame, text="Geometric Shape Counter", font=("Century", 36))
 label1.grid(row=0, column=0, columnspan=2, pady=12, sticky="n")
 
-label2 = customtkinter.CTkLabel(master=frame, text="EE409 DIGITAL IMAGE PROCESSING", font=("Verdana", 25))
-label2.grid(row=1, column=0, columnspan=2, pady=12)
 
 # Create a label to display the selected image on the left side
 selected_image_label = customtkinter.CTkLabel(master=frame, text="")
@@ -56,12 +54,12 @@ def open_image_file_dialog():
         gsc = GeometricShapeCounter(fileName)
         output=gsc.drawContours(gsc.original, withText=False, withColor=True)
         im = Image.fromarray(output)
-        photo= ImageTk.PhotoImage(image=im)
+        #photo= ImageTk.PhotoImage(image=im)
         # output=cv2.cvtColor(output,cv2.COLOR_GRAY2RGB)
-        # photo = ImageTk.PhotoImage(output)
-        # selected_image_label.configure(image=photo)
+        photo = ImageTk.PhotoImage(image=output)
+        selected_image_label.configure(image=photo)
         print(photo)
-        
+
         # selected_image_label.image = photo  # Keep a reference to the image to prevent garbage collection
 
         # # Enable the button to run scripts
@@ -70,20 +68,6 @@ def open_image_file_dialog():
 # Create a button to open the image file selection dialog
 open_image_button = customtkinter.CTkButton(master=frame, text="Select Image File", command=open_image_file_dialog)
 open_image_button.grid(row=5, column=0, columnspan=2, pady=12)
-
-# # Function to run both Geometric Shape Counter.py and ErrorHandler.py
-# def run_scripts():
-#     if selected_image_label.image:
-#         # Get the file path from the image object
-#         file_path = selected_image_label.image.filename
-
-#         # Run the other Python scripts
-#         subprocess.run(["python", "Geometric Shape Counter.py", file_path])
-#         subprocess.run(["python", "ErrorHandler.py", file_path])
-
-# # Create a button to run scripts
-# run_scripts_button = customtkinter.CTkButton(master=frame, text="Run Scripts", command=run_scripts, state="disabled")
-# run_scripts_button.grid(row=6, column=0, columnspan=2, pady=12)
 
 # Configure grid weights for resizing
 frame.grid_rowconfigure(0, weight=5)

@@ -70,7 +70,7 @@ def edgeDetection(img):
     edges=signal.convolve2d(float_img, h)
     labeled_array, num_features = label(edges)
     contours = find_objects(labeled_array)
-    imshow(edges)
+
     # Group contours based on proximity
     grouped_contours = []
     min_distance = 30  # Minimum distance to consider contours as part of the same group
@@ -105,4 +105,5 @@ grayImg=RGB2GRAY(img)
 thresholdImg=threshold(grayImg)
 contours=edgeDetection(thresholdImg)
 corners=harrisCornerDetector(thresholdImg)
+imshow(corners)
 print(contours)

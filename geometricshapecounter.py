@@ -3,27 +3,51 @@ Application to classify shapes
 """
 import cv2
 import json
-from ErrorHandler import ErrorCatcher,CatchException
-
 
 class GeometricShapeCounter:
     def __init__(self, file):
-        __metaclass__ = ErrorCatcher
+        """
+        :param file(str): file name of input file
+        """
+        # temp variable to keep number of shapes
         self.__count = {"triangle": 0, "rectangle": 0, "pentagon": 0, "hexagon": 0, "circle": 0}
-        # turn bgr image to gray
+        # turn bgr image to grayscale
         self.original = self.__imRead(file)
         # get defaults values
         self.defaults = self.__get_defaults()
 
     @staticmethod
-
     def __get_defaults():
+        """
+        Get defaults.json file (it keeps settings of the GeometricShapeCounter class)
+
+        :return: defaultValues: default settings (json array)
+
+        """
+        # open defaults.json
         f = open('defaults.json')
         defaultValues = json.load(f)
+        # return defaultValues ==> Settings of the class
         return defaultValues
 
     @staticmethod
     def update_json_value(json_file_path, key, name,point,color,text,fontScale,thickness,fontColor):
+        """
+        Function to update settings of app (defaults.json)
+
+        :param json_file_path: path of the json settings file
+        :param key: the key we're looking for
+        :param name: name parameter in the json file (ex. triangle)
+        :param point: point parameter in the json file (ex. 3)
+        :param color: color parameter in the json file in HEX format (fill color) (ex. "#C80001")
+        :param text: text parameter in the json file (the text which appears in the app) (ex. Triangle)
+        :param fontScale: fontScale parameter in the json file (range [0-1]) (ex. 0.5)
+        :param thickness: thickness parameter in the json file (ex. 1)
+        :param fontColor: fontColor parameter in the json file in HEX format (ex. "#FFFFFF")
+        :return: data: updated json file
+
+        """
+        # new values from user
         new_value = {
             "name": name,
             "point": point,
@@ -33,17 +57,17 @@ class GeometricShapeCounter:
             "thickness": thickness,
             "fontColor": fontColor
         }
-        # JSON dosyasını oku
+        # read the JSON file
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
 
-        # Belirtilen anahtarı ve yeni değeri güncelle
+        # update JSON array data
         if key in data:
             data[key] = new_value
         else:
             print(f"Error: Key '{key}' not found in the JSON file.")
 
-        # Güncellenmiş JSON verisini dosyaya yaz
+        # write updated JSON data to file
         with open(json_file_path, 'w') as json_file:
             json.dump(data, json_file, indent=4)
 
@@ -51,11 +75,21 @@ class GeometricShapeCounter:
 
     @staticmethod
     def __imRead(file):
+        """
+        :param file:
+        :return:
+        """
         img = cv2.imread(file)
         return img
 
     @staticmethod
     def imShow(img, windowName="Trial"):
+        """
+
+        :param img:
+        :param windowName:
+        :return:
+        """
         cv2.imshow(windowName, img)
         cv2.waitKey(0)
 
@@ -115,7 +149,7 @@ class GeometricShapeCounter:
         self.__count[shape] += 1
 
     @staticmethod
-    def __fillPollyWithText(img, text, approx, x, y, fontScale, thickness, fontColor, color, withText=True,
+    def __fillPolyWithText(img, text, approx, x, y, fontScale, thickness, fontColor, color, withText=True,
                             withColor=True):
         if withColor:
             cv2.fillPoly(img, [approx], color)
@@ -155,7 +189,7 @@ class GeometricShapeCounter:
                 self.__countShapes(default["name"])
             elif len(approx) > 2:
                 default = self.defaults.get("{}".format(len(approx)))
-                self.__fillPollyWithText(img=img, text=default["text"], approx=approx, x=x, y=y,
+                self.__fillPolyWithText(img=img, text=default["text"], approx=approx, x=x, y=y,
                                          fontScale=default["fontScale"], thickness=default["thickness"],
                                          fontColor=self.__hex_to_bgr(default["fontColor"]),
                                          color=self.__hex_to_bgr(default["color"]), withText=withText,
@@ -166,7 +200,8 @@ class GeometricShapeCounter:
         return img
 
 
-# #fileName = "shapes.png
+fileName = "shapes.png"
 # fileName = ""
-# gsc = GeometricShapeCounter(fileName)
-# gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
+gsc = GeometricShapeCounter(fileName)
+
+gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
