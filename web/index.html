@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<div class="contentMain">
+		<div class="header">
+		</div>
+		<div class="box" id="left">
+			<label for="chooseFile">
+			<img src="blankImagePlaceholder.jpg"class="InputImage"id="inputImage">
+			</label>
+			<input type="file" id="chooseFile" accept="image/*" style="display: none;" onchange="changeImage(event)">
+			<img src="blankImagePlaceholder.jpg"class="InputImage"id="outputImage">
+		</div>
+		<div class="box" id="right">
+			<!-- Triangle -->
+			<div class="shapesMain">
+				
+				<div class="shapesText">
+					Triangle
+				</div>
+				<div class="shapesImageText">
+					<input class="mainInputs" placeholder="Text of the shape in Image"id="t_text"onchange="updateDefaultsFromJSON('3','triangle')">
+				</div>
+				<div class="shapesFillColor">
+					<label class="mainLabel"for="t_colorPickerFill">Fill Color</label>
+					<input type="color" class="mainColorPicker" id="t_colorPickerFill" name="colorPicker"onchange="updateDefaultsFromJSON('3','triangle')">
+					
+				</div>
+				<div class="shapesFontScale">
+					<input type="number" class="mainInputs" placeholder="Font Scale" min="0" max="5" step="0.1" class="mainInputs" id="t_FontScale"onchange="updateDefaultsFromJSON('3','triangle')">
+				</div>
+
+				<div class="shapesCount">
+					<div class="shapesCountBox"id="triangle">0</div>
+				</div>
+				<div class="shapesFillChoise">
+					<input class="mainCheckBox" type="checkbox" id="t_checkBoxFill" name="checkBoxFill" onchange="updateDefaultsFromJSON('3','triangle')">
+  					<label class="mainLabel"for="t_checkBoxFill">Fill</label>
+				</div>
+				<div class="shapesTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="t_checkBoxText" name="checkBoxText" onchange="updateDefaultsFromJSON('3','triangle')">
+  					<label class="mainLabel"for="t_checkBoxText">Text</label>
+				</div>
+				<div class="shapesTextColor">
+					<label class="mainLabel"for="t_colorPickerText">Text Color</label>
+					<input class="mainColorPicker"type="color" id="t_colorPickerText" name="favcolor" value="#ff0000"onchange="updateDefaultsFromJSON('3','triangle')">
+					
+				</div>
+				<div class="shapesThickness">
+					<input type="number" class="mainInputs" placeholder="Thickness" min="0" max="5" step="1" id="t_Thickness"onchange="updateDefaultsFromJSON('3','triangle')">
+				</div>
+			</div>
+			<!-- Rectangle -->
+			<div class="shapesMain">
+				
+				<div class="shapesText">
+					Rectangle
+				</div>
+				<div class="shapesImageText">
+					<input class="mainInputs" placeholder="Text of the shape in Image"id="r_text"onchange="updateDefaultsFromJSON('4','rectangle')">
+				</div>
+				<div class="shapesFillColor">
+					<label class="mainLabel"for="r_colorPickerFill">Fill Color</label>
+					<input type="color" class="mainColorPicker" id="r_colorPickerFill" name="colorPicker"onchange="updateDefaultsFromJSON('4','rectangle')">
+					
+				</div>
+				<div class="shapesFontScale">
+					<input class="mainInputs" type="number" class="mainInputs" placeholder="Font Scale" min="0" max="5" step="0.1"id="r_FontScale"onchange="updateDefaultsFromJSON('4','rectangle')">
+				</div>
+
+				<div class="shapesCount">
+					<div class="shapesCountBox"id="rectangle">0</div>
+				</div>
+				<div class="shapesFillChoise">
+					<input class="mainCheckBox" type="checkbox" id="r_checkBoxFill" name="checkBoxFill" onchange="updateDefaultsFromJSON('4','rectangle')">
+  					<label class="mainLabel"for="r_checkBoxFill">Fill</label>
+				</div>
+				<div class="shapesTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="r_checkBoxText" name="checkBoxText" onchange="updateDefaultsFromJSON('4','rectangle')">
+  					<label class="mainLabel"for="r_checkBoxText">Text</label>
+				</div>
+				<div class="shapesTextColor">
+					<label class="mainLabel"for="r_colorPickerText">Text Color</label>
+					<input class="mainColorPicker"type="color" id="r_colorPickerText" name="favcolor" value="#ff0000"onchange="updateDefaultsFromJSON('4','rectangle')">
+					
+				</div>
+				<div class="shapesThickness">
+					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="r_Thickness"onchange="updateDefaultsFromJSON('4','rectangle')">
+				</div>
+			</div>
+			<!-- Pentagon -->
+			<div class="shapesMain">
+				
+				<div class="shapesText">
+					Pentagon
+				</div>
+				<div class="shapesImageText">
+					<input class="mainInputs" placeholder="Text of the shape in Image"id="p_text"onchange="updateDefaultsFromJSON('5','pentagon')">
+				</div>
+				<div class="shapesFillColor">
+					<label class="mainLabel"for="p_colorPickerFill">Fill Color</label>
+					<input type="color" class="mainColorPicker" id="p_colorPickerFill" name="colorPicker"onchange="updateDefaultsFromJSON('5','pentagon')">
+					
+				</div>
+				<div class="shapesFontScale">
+					<input class="mainInputs" type="number" class="mainInputs" placeholder="Font Scale" min="0" max="5" step="0.1"id="p_FontScale"onchange="updateDefaultsFromJSON('5','pentagon')">
+				</div>
+
+				<div class="shapesCount">
+					<div class="shapesCountBox"id="pentagon">0</div>
+				</div>
+				<div class="shapesFillChoise">
+					<input class="mainCheckBox" type="checkbox" id="p_checkBoxFill" name="checkBoxFill" onchange="updateDefaultsFromJSON('5','pentagon')">
+  					<label class="mainLabel"for="p_checkBoxFill">Fill</label>
+				</div>
+				<div class="shapesTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="p_checkBoxText" name="checkBoxText" onchange="updateDefaultsFromJSON('5','pentagon')">
+  					<label class="mainLabel"for="p_checkBoxText">Text</label>
+				</div>
+				<div class="shapesTextColor">
+					<label class="mainLabel"for="p_colorPickerText">Text Color</label>
+					<input class="mainColorPicker"type="color" id="p_colorPickerText" name="favcolor" value="#ff0000"onchange="updateDefaultsFromJSON('5','pentagon')">
+					
+				</div>
+				<div class="shapesThickness">
+					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="p_Thickness">
+				</div>
+			</div>
+			<!-- Hexagon -->
+			<div class="shapesMain">
+				
+				<div class="shapesText">
+					Hexagon
+				</div>
+				<div class="shapesImageText">
+					<input class="mainInputs" placeholder="Text of the shape in Image"id="h_text"onchange="updateDefaultsFromJSON('6','hexagon')">
+				</div>
+				<div class="shapesFillColor">
+					<label class="mainLabel"for="h_colorPickerFill">Fill Color</label>
+					<input type="color" class="mainColorPicker" id="h_colorPickerFill" name="colorPicker"onchange="updateDefaultsFromJSON('6','hexagon')">
+					
+				</div>
+				<div class="shapesFontScale">
+					<input class="mainInputs" type="number" class="mainInputs" placeholder="Font Scale" min="0" max="5" step="0.1"id="h_FontScale"onchange="updateDefaultsFromJSON('6','hexagon')">
+				</div>
+
+				<div class="shapesCount">
+					<div class="shapesCountBox"id="hexagon">0</div>
+				</div>
+				<div class="shapesFillChoise">
+					<input class="mainCheckBox" type="checkbox" id="h_checkBoxFill" name="checkBoxFill" onchange="updateDefaultsFromJSON('6','hexagon')">
+  					<label class="mainLabel"for="h_checkBoxFill">Fill</label>
+				</div>
+				<div class="shapesTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="h_checkBoxText" name="checkBoxText" onchange="updateDefaultsFromJSON('6','hexagon')">
+  					<label class="mainLabel"for="h_checkBoxText">Text</label>
+				</div>
+				<div class="shapesTextColor">
+					<label class="mainLabel"for="h_colorPickerText">Text Color</label>
+					<input class="mainColorPicker"type="color" id="h_colorPickerText" name="favcolor" value="#ff0000"onchange="updateDefaultsFromJSON('6','hexagon')">
+					
+				</div>
+				<div class="shapesThickness">
+					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="h_Thickness"onchange="updateDefaultsFromJSON('6','hexagon')">
+				</div>
+			</div>
+			<!-- Circle -->
+			<div class="shapesMain">
+					
+				<div class="shapesText">
+					Circle
+				</div>
+				<div class="shapesImageText">
+					<input class="mainInputs" placeholder="Text of the shape in Image"id="c_text"onchange="updateDefaultsFromJSON('7','circle')">
+				</div>
+				<div class="shapesFillColor">
+					<label class="mainLabel"for="c_colorPickerFill">Fill Color</label>
+					<input type="color" class="mainColorPicker" id="c_colorPickerFill" name="colorPicker"onchange="updateDefaultsFromJSON('7','circle')">
+					
+				</div>
+				<div class="shapesFontScale">
+					<input class="mainInputs" type="number" class="mainInputs" placeholder="Font Scale" min="0" max="5" step="0.1"id="c_FontScale"onchange="updateDefaultsFromJSON('7','circle')">
+				</div>
+
+				<div class="shapesCount">
+					<div class="shapesCountBox"id="circle">0</div>
+				</div>
+				<div class="shapesFillChoise">
+					<input class="mainCheckBox" type="checkbox" id="c_checkBoxFill" name="checkBoxFill" onchange="updateDefaultsFromJSON('7','circle')">
+					<label class="mainLabel"for="c_checkBoxFill">Fill</label>
+				</div>
+				<div class="shapesTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="c_checkBoxText" name="checkBoxText" onchange="updateDefaultsFromJSON('7','circle')">
+					<label class="mainLabel"for="c_checkBoxText">Text</label>
+				</div>
+				<div class="shapesTextColor">
+					<label class="mainLabel"for="c_colorPickerText">Text Color</label>
+					<input class="mainColorPicker"type="color" id="c_colorPickerText" name="favcolor" value="#ff0000"onchange="updateDefaultsFromJSON('7','circle')">
+					
+				</div>
+				<div class="shapesThickness">
+					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="c_Thickness"onchange="updateDefaultsFromJSON('7','circle')">
+				</div>
+			</div>
+			<!-- Settings -->
+			<div class="settingsMain">
+				<div class="settingsText">
+					Epsilon
+				</div>
+				<div class="settingsValue">
+					<input class="mainInputs" type="number" placeholder="Epsilon" id="epsilon"min="0" max="0.08" step="0.001"value="0.031" onchange="changeOnImage()" >
+				</div>
+				<div class="settingsValueSlider">
+					<input class="mainSlider" type="range" min="0" max="0.08" step="0.001"value="0.031" id="epsilonSlider" onchange="changeOnImage()">
+				</div>
+
+				<div class="settingsText">
+					Threshold
+				</div>
+				<div class="settingsValue">
+					<input class="mainInputs" type="number" placeholder="Threshold"  id="threshold" min="0" max="255" value="170" step="1" onchange="changeOnImage()" >
+				</div>
+				<div class="settingsValueSlider">
+					<input class="mainSlider"type="range" min="0" max="255" value="170" step="1" onchange="changeOnImage()"id="thresholdSlider">
+				</div>
+
+
+
+
+				<div class="settingsTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsClosed" name="checkBoxSettingsClosed"  onchange="changeOnImage()" checked>
+					<label class="mainLabel"for="checkBoxSettingsClosed" checked>Closed</label>
+				</div>
+				<div class="settingsTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsText" name="checkBoxSettingsText"  onchange="changeOnImage()" checked>
+					<label class="mainLabel"for="checkBoxSettingsText">Text</label>
+				</div>
+				<div class="settingsTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsFill" name="checkBoxSettingsFill"  onchange="changeOnImage()" checked>
+					<label class="mainLabel"for="checkBoxSettingsFill">Fill</label>
+				</div>
+				<div class="settingsTextChoise">
+					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsLog" name="checkBoxSettingsLog"  onchange="changeOnImage()" checked>
+					<label class="mainLabel"for="checkBoxSettingsLog">Log</label>
+				</div>
+
+				
+			</div>
+	</div>
+	<script type="text/javascript" src="../eel.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

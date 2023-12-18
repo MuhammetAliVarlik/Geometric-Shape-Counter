@@ -4,20 +4,19 @@ Application to classify shapes
 import cv2
 import json
 
+
 class GeometricShapeCounter:
-    def __init__(self, file):
+    def __init__(self):
         """
         :param file(str): file name of input file
         """
         # temp variable to keep number of shapes
         self.__count = {"triangle": 0, "rectangle": 0, "pentagon": 0, "hexagon": 0, "circle": 0}
-        # turn bgr image to grayscale
-        self.original = self.__imRead(file)
         # get defaults values
-        self.defaults = self.__get_defaults()
+        self.defaults = self.get_defaults()
 
     @staticmethod
-    def __get_defaults():
+    def get_defaults():
         """
         Get defaults.json file (it keeps settings of the GeometricShapeCounter class)
 
@@ -31,7 +30,7 @@ class GeometricShapeCounter:
         return defaultValues
 
     @staticmethod
-    def update_json_value(json_file_path, key, name,point,color,text,fontScale,thickness,fontColor):
+    def update_json_value(json_file_path, key, name, point, color, text, fontScale, thickness, fontColor,fillChoice,textChoice):
         """
         Function to update settings of app (defaults.json)
 
@@ -55,7 +54,9 @@ class GeometricShapeCounter:
             "text": text,
             "fontScale": fontScale,
             "thickness": thickness,
-            "fontColor": fontColor
+            "fontColor": fontColor,
+            "fillChoice": fillChoice,
+            "textChoice": textChoice
         }
         # read the JSON file
         with open(json_file_path, 'r') as json_file:
@@ -74,7 +75,7 @@ class GeometricShapeCounter:
         return data
 
     @staticmethod
-    def __imRead(file):
+    def imRead(file):
         """
         :param file:
         :return:
@@ -114,7 +115,6 @@ class GeometricShapeCounter:
         Returns:
         - tuple: BGR color representation as a tuple.
         """
-        print(tuple(int(hex_color[i:i + 2], 16) for i in (5, 3, 1)))
         return tuple(int(hex_color[i:i + 2], 16) for i in (5, 3, 1))
 
     @staticmethod
@@ -149,15 +149,17 @@ class GeometricShapeCounter:
         self.__count[shape] += 1
 
     @staticmethod
-    def __fillPolyWithText(img, text, approx, x, y, fontScale, thickness, fontColor, color, withText=True,
-                            withColor=True):
+    def __fillPolyWithText(img, text, approx, x, y, fontScale, thickness, fontColor, color,fillChoice,textChoice, withText=True,
+                           withColor=True):
         if withColor:
-            cv2.fillPoly(img, [approx], color)
+            if bool(fillChoice):
+                cv2.fillPoly(img, [approx], color)
         if withText:
-            cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
+            if bool(textChoice):
+                cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
 
     @staticmethod
-    def __drawCircle(img, text, x, y, fontScale, thickness, fontColor, cnt, color, withText=True, withColor=True):
+    def __drawCircle(img, text, x, y, fontScale, thickness, fontColor, cnt, color,fillChoice,textChoice,withText=True, withColor=True):
         ((x1, y1), radius) = cv2.minEnclosingCircle(cnt)
         M = cv2.moments(cnt)
         center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
@@ -165,13 +167,16 @@ class GeometricShapeCounter:
             # draw the circle and centroid on the frame,
             # then update the list of tracked points
             if withColor:
-                cv2.circle(img, (int(x1), int(y1)), int(radius), color, -1)
-                cv2.circle(img, (int(center[0]), int(center[1])), int(radius), (255, 0, 0), -1)
+                if bool(fillChoice):
+                    cv2.circle(img, (int(center[0]), int(center[1])), int(radius), color, -1)
+                    cv2.circle(img, (int(center[0]), int(center[1])), 3, (0, 0, 255), -1)
         if withText:
-            cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
+            if bool(textChoice):
+                cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
 
     def drawContours(self, img, eps=0.031, thresh=170, maxVal=255, closed=True, withText=True, withColor=True,
                      withLog=True):
+
         contours = self.__findContours(img, thresh=thresh, maxVal=maxVal)
         for cnt in contours:
             epsilon = eps * cv2.arcLength(cnt, closed)
@@ -184,24 +189,24 @@ class GeometricShapeCounter:
                 default = self.defaults.get("{}".format(7))
                 self.__drawCircle(img, text=default["text"], x=x, y=y, fontScale=default["fontScale"],
                                   thickness=default["thickness"], fontColor=self.__hex_to_bgr(default["fontColor"]),
-                                  cnt=cnt, color=self.__hex_to_bgr(default["color"]), withText=withText,
+                                  cnt=cnt, color=self.__hex_to_bgr(default["color"]),fillChoice=default["fillChoice"],textChoice=default["textChoice"],withText=withText,
                                   withColor=withColor)
                 self.__countShapes(default["name"])
             elif len(approx) > 2:
                 default = self.defaults.get("{}".format(len(approx)))
                 self.__fillPolyWithText(img=img, text=default["text"], approx=approx, x=x, y=y,
-                                         fontScale=default["fontScale"], thickness=default["thickness"],
-                                         fontColor=self.__hex_to_bgr(default["fontColor"]),
-                                         color=self.__hex_to_bgr(default["color"]), withText=withText,
-                                         withColor=withColor)
+                                        fontScale=default["fontScale"], thickness=default["thickness"],
+                                        fontColor=self.__hex_to_bgr(default["fontColor"]),
+                                        color=self.__hex_to_bgr(default["color"]),fillChoice=default["fillChoice"],textChoice=default["textChoice"],withText=withText,
+                                        withColor=withColor)
                 self.__countShapes(default["name"])
         if withLog:
             print(self.printCount())
-        return img
+        return img, self.__count
 
 
-fileName = "shapes.png"
+"""fileName = "shapes.png"
 # fileName = ""
 gsc = GeometricShapeCounter(fileName)
 
-gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
+gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))"""

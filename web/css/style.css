@@ -1,0 +1,275 @@
+body {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Ubuntu, Cantarell, "Fira Sans", sans-serif;
+    background: rgb(26, 22, 37);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.contentMain {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.header {
+    background-color: rgb(18, 18, 18);
+    width: 100%;
+    position: relative;
+    top: 0px;
+    height: 0%;
+    float: left;
+    font-size: 2.5vw;
+}
+
+.box {
+    position: relative;
+    width: 50%;
+    height: 90%;
+    float: left;
+}
+/*Left Side*/
+.InputImage{
+    width:100%;
+    height: 50%;
+    position: relative;
+    float: left;
+    object-fit: contain;
+
+}
+
+/* Right Side */
+.shapesMain {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    border-bottom: 1px darkgray;
+}
+#right {
+    background-color: #1a1625;
+}
+.settingsMain {
+    position: relative;
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px darkgray;
+}
+/* First row */
+.shapesText {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:lightgrey;
+}
+.shapesImageText {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shapesFillColor {
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shapesFontScale {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Second row */
+.shapesCount {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shapesCountBox{
+    width:15%;
+    height: 55%;
+    border-radius:20vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#7a5af5;
+}
+
+.shapesFillChoise {
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shapesTextChoise {
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shapesTextColor {
+    position: relative;
+    float: left;
+    width: 15%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shapesThickness {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*settings*/
+.settingsText {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:lightgrey;
+}
+.settingsValue {
+    position: relative;
+    float: left;
+    width: 30%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settingsValueSlider {
+    position: relative;
+    float: left;
+    width: 40%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settingsTextChoise {
+    position: relative;
+    float: left;
+    width: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*Input styles*/
+.mainInputs {
+    float: left;
+    position: relative;
+    width: 85%;
+    padding: 0.5vw;
+    color: white;
+    font-size: 0.9vw;
+    outline: none;
+    background-color: #2f2b3a;
+    border-radius: 2vw;
+    border: none;
+}
+.mainInputs::placeholder{
+    color:lightgrey;
+}
+.mainInputs:focus {
+outline: none;
+border: none;
+color:#ba9ffb;
+}
+.mainColorPicker {
+  width: 2vw;
+  height: 2vw;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: none;
+}
+.mainColorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 0.2vw;
+  padding: 0;
+}
+.mainColorPicker::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 0.2vw;
+  padding: 0;
+}
+
+.mainColorPicker::-webkit-color-swatch-wrapper,
+.mainColorPicker::-moz-color-swatch,
+.mainColorPicker::placeholder {
+  display: none;
+}
+
+
+.mainCheckBox{
+    width: 20%;
+    height: 40%;
+    background-color: black;
+}
+.mainLabel{
+    width: 20%;
+    height: 40%;
+    padding: 1vw;
+    font-size: 0.9vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:lightgrey;
+
+}
+
+  .mainSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  
