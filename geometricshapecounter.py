@@ -33,17 +33,14 @@ class GeometricShapeCounter:
             "thickness": thickness,
             "fontColor": fontColor
         }
-        # JSON dosyasını oku
         with open(json_file_path, 'r') as json_file:
             data = json.load(json_file)
 
-        # Belirtilen anahtarı ve yeni değeri güncelle
         if key in data:
             data[key] = new_value
         else:
             print(f"Error: Key '{key}' not found in the JSON file.")
 
-        # Güncellenmiş JSON verisini dosyaya yaz
         with open(json_file_path, 'w') as json_file:
             json.dump(data, json_file, indent=4)
 
@@ -164,9 +161,9 @@ class GeometricShapeCounter:
         if withLog:
             print(self.printCount())
         return img
-
-
 # #fileName = "shapes.png
 # fileName = ""
 # gsc = GeometricShapeCounter(fileName)
 # gsc.imShow(gsc.drawContours(gsc.original, withText=False, withColor=True))
+#fileName = "shapes.png
+
