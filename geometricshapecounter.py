@@ -131,10 +131,11 @@ class GeometricShapeCounter:
         return "#{:02X}{:02X}{:02X}".format(*bgr_color[::-1])
 
     def __findContours(self, img, thresh, maxVal):
-        _, img = self.__threshold(self.__im2Gray(img), thresh=thresh, maxVal=maxVal)
+        grayImg=self.__im2Gray(img)
+        _, img = self.__threshold(grayImg, thresh=thresh, maxVal=maxVal)
         # findContours finds the shell of shapes and classifies them hierarchically
         contours, _ = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        return contours
+        return contours,img,grayImg
 
     def __findHierarchy(self, img, thresh, maxVal):
         _, img = self.__threshold(self.__im2Gray(img), thresh=thresh, maxVal=maxVal)
@@ -142,8 +143,9 @@ class GeometricShapeCounter:
         _, hierarchy = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         return hierarchy
 
-    def printCount(self):
-        return self.__count
+    def printCount(self,withLog):
+        if withLog:
+            return self.__count
 
     def __countShapes(self, shape):
         self.__count[shape] += 1
@@ -151,11 +153,20 @@ class GeometricShapeCounter:
     @staticmethod
     def __fillPolyWithText(img, text, approx, x, y, fontScale, thickness, fontColor, color,fillChoice,textChoice, withText=True,
                            withColor=True):
+        m = cv2.moments(approx)
+        cx = int(m["m10"] / m["m00"])
+        cy = int(m["m01"] / m["m00"])
+
         if withColor:
             if bool(fillChoice):
+                cv2.drawContours(img, [approx], -1, (0, 255, 0), 2)
                 cv2.fillPoly(img, [approx], color)
+                cv2.circle(img, (cx, cy), 1, (0, 0, 255), 3)
         if withText:
             if bool(textChoice):
+                cv2.putText(img, "AL:"+str(round(cv2.arcLength(approx, True),2)), (x, y+15), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
+                cv2.putText(img, "A:" + str(round(cv2.contourArea(approx),2)), (x, y + 30),
+                            cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
                 cv2.putText(img, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, fontScale, fontColor, thickness)
 
     @staticmethod
@@ -177,7 +188,7 @@ class GeometricShapeCounter:
     def drawContours(self, img, eps=0.031, thresh=170, maxVal=255, closed=True, withText=True, withColor=True,
                      withLog=True):
 
-        contours = self.__findContours(img, thresh=thresh, maxVal=maxVal)
+        contours,thresholdImage,grayImage = self.__findContours(img, thresh=thresh, maxVal=maxVal)
         for cnt in contours:
             epsilon = eps * cv2.arcLength(cnt, closed)
             # use approxPolyDb to simplify poly lines (RDP based)
@@ -201,8 +212,8 @@ class GeometricShapeCounter:
                                         withColor=withColor)
                 self.__countShapes(default["name"])
         if withLog:
-            print(self.printCount())
-        return img, self.__count
+            print(self.printCount(withLog=withLog))
+        return img, self.__count,self.printCount(withLog=withLog),thresholdImage,grayImage
 
 
 """fileName = "shapes.png"

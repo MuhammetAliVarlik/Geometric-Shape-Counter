@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Main Page</title>
+<title>Geometric Shape Counter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="icon" type="image/x-icon" href="icon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body onload="disableInputs()">
 	<div class="contentMain">
 		<div class="header">
 		</div>
 		<div class="box" id="left">
+			<!---
 			<label for="chooseFile">
 			<img src="blankImagePlaceholder.jpg"class="InputImage"id="inputImage">
 			</label>
-			<input type="file" id="chooseFile" accept="image/*" style="display: none;" onchange="changeImage(event)">
+			<input type="file" id="chooseFile" accept="image/*" style="display: none;" onchange="changeImage(event)"
 			<img src="blankImagePlaceholder.jpg"class="InputImage"id="outputImage">
+		-->
+			
+			<div class="slideshow-container"id="slideShow">
+
+			<div class="mySlides fade">
+			  <div class="numbertext">1 / 4</div>
+			  <img src="blankImagePlaceholder.png" style="width:100%" id="inputImage">
+			  <div class="text">Original Image</div>
+			</div>
+
+			<div class="mySlides fade">
+			  <div class="numbertext">2 / 4</div>
+			  <img src="blankImagePlaceholder.png" style="width:100%" id="grayImage">
+			  <div class="text">Gray Image</div>
+			</div>
+
+			<div class="mySlides fade">
+			  <div class="numbertext">3 / 4</div>
+			  <img src="blankImagePlaceholder.png" style="width:100%" id="thresholdImage">
+			  <div class="text">Threshold Image</div>
+			</div>
+			<div class="mySlides fade">
+			  <div class="numbertext">4 / 4</div>
+			  <img src="blankImagePlaceholder.png" style="width:100%" id="outputImage">
+			  <div class="text">Output Image</div>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)"><</a>
+			<a class="next" onclick="plusSlides(1)">></a>
+
+			</div>
+			<p id='text'style="color:white"></p>
+			<div style="text-align:center">
+			  <span class="dot" onclick="currentSlide(1)"></span> 
+			  <span class="dot" onclick="currentSlide(2)"></span> 
+			  <span class="dot" onclick="currentSlide(3)"></span> 
+			  <span class="dot" onclick="currentSlide(4)"></span> 
+			</div>
+
+
+		</div>
+		<div class="log"id="log"style="display: none;">
+			<object class="logIframe" id="logIframeObject" data="output_log.txt" width="300" height="200">
+			Not supported
+			</object>
+		</div>
+		<div class="inputButtons">
+			<div class="inputButton">
+				<input type="file" id="chooseFile" accept="image/*" style="display: none;"  onchange="changeImage(event)">
+			<label  for="chooseFile"><i class="fa-regular fa-file"></i>&nbsp Import Image</label>
+			
+			</div>
+			<div class="inputButton" onclick="refreshPage()">
+				<label><i class="fa-solid fa-rotate-right"></i> &nbsp Refresh Page</label>
+				
+			</div>
+			<div class="inputButton" onclick="saveImage()">
+				<label><i class="fa-regular fa-floppy-disk"></i>&nbsp Save Image</label>
+				
+			</div>
+			
 		</div>
 		<div class="box" id="right">
 			<!-- Triangle -->
@@ -93,7 +156,7 @@
 					
 				</div>
 				<div class="shapesThickness">
-					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="r_Thickness"onchange="updateDefaultsFromJSON('4','rectangle')">
+					<input type="number" class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="r_Thickness"onchange="updateDefaultsFromJSON('4','rectangle')">
 				</div>
 			</div>
 			<!-- Pentagon -->
@@ -131,7 +194,7 @@
 					
 				</div>
 				<div class="shapesThickness">
-					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="p_Thickness">
+					<input type="number" class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="p_Thickness">
 				</div>
 			</div>
 			<!-- Hexagon -->
@@ -169,7 +232,7 @@
 					
 				</div>
 				<div class="shapesThickness">
-					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="h_Thickness"onchange="updateDefaultsFromJSON('6','hexagon')">
+					<input type="number"class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="h_Thickness"onchange="updateDefaultsFromJSON('6','hexagon')">
 				</div>
 			</div>
 			<!-- Circle -->
@@ -207,7 +270,7 @@
 					
 				</div>
 				<div class="shapesThickness">
-					<input class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="c_Thickness"onchange="updateDefaultsFromJSON('7','circle')">
+					<input type="number" class="mainInputs" placeholder="Thickness" min="0" max="5" step="1"id="c_Thickness"onchange="updateDefaultsFromJSON('7','circle')">
 				</div>
 			</div>
 			<!-- Settings -->
@@ -248,7 +311,7 @@
 					<label class="mainLabel"for="checkBoxSettingsFill">Fill</label>
 				</div>
 				<div class="settingsTextChoise">
-					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsLog" name="checkBoxSettingsLog"  onchange="changeOnImage()" checked>
+					<input class="mainCheckBox" type="checkbox" id="checkBoxSettingsLog" name="checkBoxSettingsLog"  onchange="changeOnImage();controlLogPanel()" >
 					<label class="mainLabel"for="checkBoxSettingsLog">Log</label>
 				</div>
 

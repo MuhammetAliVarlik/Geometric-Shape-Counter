@@ -1,0 +1,177 @@
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:06:58] "GET /index.html HTTP/1.1" 200 14895 0.004111
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:06:58] "GET /css/style.css HTTP/1.1" 200 7644 0.275117
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:06:58] "GET /blankImagePlaceholder.png HTTP/1.1" 200 13162 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:06:58] "GET /eel.js HTTP/1.1" 200 6058 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:06:58] "GET /js/main.js HTTP/1.1" 200 19787 0.002610
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
+INFO:root:{'triangle': 5, 'rectangle': 3, 'pentagon': 8, 'hexagon': 6, 'circle': 6}
+NoneType: None
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:31] "GET /output_log.txt HTTP/1.1" 200 3650 0.001993
+INFO:root:{'triangle': 1, 'rectangle': 0, 'pentagon': 0, 'hexagon': 0, 'circle': 0}
+NoneType: None
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:48] "GET /output_log.txt HTTP/1.1" 200 3980 0.001041
+INFO:root:None
+NoneType: None
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /index.html HTTP/1.1" 200 14895 0.004245
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /css/style.css HTTP/1.1" 200 7644 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /blankImagePlaceholder.png HTTP/1.1" 200 13162 0.002199
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /eel.js HTTP/1.1" 200 6058 0.001002
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /js/main.js HTTP/1.1" 200 19787 0.002034
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /blankImagePlaceholder.png HTTP/1.1" 200 13162 0.001992
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-19 19:08:55] "GET /icon.png HTTP/1.1" 200 18273 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:root:None
+NoneType: None
+INFO:root:None
+NoneType: None
