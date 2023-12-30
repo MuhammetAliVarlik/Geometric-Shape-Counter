@@ -2,7 +2,7 @@
     "3": {
         "name": "triangle",
         "point": 3,
-        "color": "#fffb00",
+        "color": "#00ffe1",
         "text": "Triangle",
         "fontScale": 0.4,
         "thickness": 1,
@@ -13,11 +13,11 @@
     "4": {
         "name": "rectangle",
         "point": 4,
-        "color": "#ffadf8",
+        "color": "#173669",
         "text": "Rectangle",
         "fontScale": 0.4,
         "thickness": 1,
-        "fontColor": "#ffffff",
+        "fontColor": "#c5dd08",
         "fillChoice": 1,
         "textChoice": 1
     },

@@ -3,10 +3,7 @@ body {
     background: rgb(26, 22, 37);
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
-}
+* {margin: 0px;padding: 0px;}
 .contentMain {
     position: relative;
     width: 100vw;
