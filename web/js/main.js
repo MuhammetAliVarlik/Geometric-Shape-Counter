@@ -8,14 +8,18 @@ function changeImage(event)
   var imgOutput = document.getElementById("outputImage");
   var imgGray = document.getElementById("grayImage");
   var imgThresh = document.getElementById("thresholdImage");
-  disableInputs();
+  // disable inputs to avoid error
+  disableInputs()
+  // if file is not empty
   if (file)
   {
     var reader = new FileReader();
-  reader.onload = function(e)
+    reader.onload = function(e)
   {
+    // input image is file result
     imgInput.src = e.target.result;
     globalResult = e.target.result;
+    // python initialize image function
     eel.initializeImage(
       e.target.result,
       document.getElementById("epsilon").value,
@@ -26,21 +30,26 @@ function changeImage(event)
       document.getElementById("checkBoxSettingsLog").checked,
       )
       (
+        // if response returns
         function(response)
         {
+          // if response is not error
           if (response!="error"){
+          // four variables returned output image,count,threshold image,gray image
           [out,count,thresh,gray]=response; 
           imgOutput.src = out; 
           imgGray.src = gray; 
           imgThresh.src = thresh;  
+          // write counts to divs
           document.getElementById("triangle").innerHTML=count["triangle"];
           document.getElementById("rectangle").innerHTML=count["rectangle"];
           document.getElementById("pentagon").innerHTML=count["pentagon"];
           document.getElementById("hexagon").innerHTML=count["hexagon"];
           document.getElementById("circle").innerHTML=count["circle"];
           document.getElementById("logIframeObject").data="../output_log.txt";
+          // enable inputs
           enableInputs();
-      
+          // get defaults.json values with python
           for(let i=3; i<8;i++)
           {
             let id_text;
@@ -181,6 +190,7 @@ function changeImage(event)
 /*----------------------------------------------------------------------------------------------------------------*/
 function changeOnImage()
 {
+  // check change on image
   eel.initializeImage(
     globalResult,
     document.getElementById("epsilon").value,
@@ -214,7 +224,7 @@ function changeOnImage()
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 function getDefaultsFromJSON(key, property_name, callback) {
-
+  //get default values from JSON
   eel.getDefaults(key, property_name)(function(response) {
     callback(response);
   });
@@ -222,6 +232,7 @@ function getDefaultsFromJSON(key, property_name, callback) {
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 function updateDefaultsFromJSON(key, property_name,tag, callback) {
+  //update default values from JSON
   point=parseInt(key);
   let id_text;
   let id_colorPickerFill;
@@ -312,6 +323,7 @@ function updateDefaultsFromJSON(key, property_name,tag, callback) {
     fillChoice,
     textChoice)(function(response) 
     {
+      // re-initialize image
       eel.initializeImage(
         globalResult,
         document.getElementById("epsilon").value,
@@ -340,7 +352,7 @@ function updateDefaultsFromJSON(key, property_name,tag, callback) {
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
-
+// epsilon input and slider 
 let rangeEpsilon=document.getElementById("epsilonSlider");
 let numberEpsilon=document.getElementById("epsilon")
 
@@ -355,6 +367,7 @@ numberEpsilon.addEventListener("onkeyup",(e)=>
 });
 
 /*----------------------------------------------------------------------------------------------------------------*/
+// threshold input and slider 
 let rangeThreshold=document.getElementById("thresholdSlider");
 let numberThreshold=document.getElementById("threshold")
 
@@ -367,6 +380,7 @@ numberThreshold.addEventListener("onkeyup",(e)=>
   rangeThreshold.value=e.target.value;
 });
 /*----------------------------------------------------------------------------------------------------------------*/
+// control panel visibility control
 function controlLogPanel()
 {
   status=document.getElementById("checkBoxSettingsLog").checked;
@@ -380,6 +394,7 @@ else
 }
 }
 /*----------------------------------------------------------------------------------------------------------------*/
+// slideShow codes from https://www.w3schools.com/howto/howto_js_slideshow.asp
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -515,10 +530,12 @@ document.getElementById("checkBoxSettingsLog").disabled=false;
 
 }
 /*----------------------------------------------------------------------------------------------------------------*/
+// refresh button function
 function refreshPage(){
 location.reload();
 }
 /*----------------------------------------------------------------------------------------------------------------*/
+// save image button function
 function saveImage() {
 // Get the image element by its ID
 var image = document.getElementById('outputImage');
@@ -547,6 +564,7 @@ downloadLink.click();
 }
 
 /*----------------------------------------------------------------------------------------------------------------*/
+// x-y coordinates in the image
 const slideShowArea = document.getElementById('slideShow');
 const coordinates = document.getElementById('text');
 
