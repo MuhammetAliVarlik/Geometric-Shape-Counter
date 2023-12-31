@@ -1,47 +1,57 @@
 {
-                "3": {
-                    "name": "triangle",
-                    "point": 3,
-                    "color": "#00FFFF",
-                    "text": "Triangle",
-                    "fontScale": 0.5,
-                    "thickness": 1,
-                    "fontColor": "#FFFFFF"
-                },
-                "4": {
-                    "name": "rectangle",
-                    "point": 4,
-                    "color": "#C80001",
-                    "text": "Rectangle",
-                    "fontScale": 0.5,
-                    "thickness": 1,
-                    "fontColor": "#FFFFFF"
-                },
-                "5": {
-                    "name": "pentagon",
-                    "point": 5,
-                    "color": "#B268FE",
-                    "text": "Pentagon",
-                    "fontScale": 0.5,
-                    "thickness": 1,
-                    "fontColor": "#FFFFFF"
-                },
-                "6": {
-                    "name": "hexagon",
-                    "point": 6,
-                    "color": "#0045FF",
-                    "text": "Hexagon",
-                    "fontScale": 0.5,
-                    "thickness": 1,
-                    "fontColor": "#FFFFFF"
-                },
-                "7": {
-                    "name": "circle",
-                    "point": 7,
-                    "color": "#01FF00",
-                    "text": "Circle",
-                    "fontScale": 0.5,
-                    "thickness": 1,
-                    "fontColor": "#FFFFFF"
-                }
-            }
+    "3": {
+        "name": "triangle",
+        "point": 3,
+        "color": "#00ffe1",
+        "text": "Triangle",
+        "fontScale": 0.4,
+        "thickness": 1,
+        "fontColor": "#ffffff",
+        "fillChoice": 1,
+        "textChoice": 1
+    },
+    "4": {
+        "name": "rectangle",
+        "point": 4,
+        "color": "#173669",
+        "text": "Rectangle",
+        "fontScale": 0.4,
+        "thickness": 1,
+        "fontColor": "#c5dd08",
+        "fillChoice": 1,
+        "textChoice": 1
+    },
+    "5": {
+        "name": "pentagon",
+        "point": 5,
+        "color": "#8000ff",
+        "text": "Pentagon",
+        "fontScale": 0.4,
+        "thickness": 1,
+        "fontColor": "#ffffff",
+        "fillChoice": 1,
+        "textChoice": 1
+    },
+    "6": {
+        "name": "hexagon",
+        "point": 6,
+        "color": "#ff9500",
+        "text": "Hexagon",
+        "fontScale": 0.4,
+        "thickness": 1,
+        "fontColor": "#ffffff",
+        "fillChoice": 1,
+        "textChoice": 1
+    },
+    "7": {
+        "name": "circle",
+        "point": 7,
+        "color": "#00ff00",
+        "text": "Circle",
+        "fontScale": 0.4,
+        "thickness": 1,
+        "fontColor": "#ffffff",
+        "fillChoice": 1,
+        "textChoice": 1
+    }
+}

@@ -1,0 +1,73 @@
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /index.html HTTP/1.1" 200 14571 0.003990
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /css/style.css HTTP/1.1" 200 7630 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /blankImagePlaceholder.jpg HTTP/1.1" 200 3715 0.006521
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /eel.js HTTP/1.1" 200 6058 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /js/main.js HTTP/1.1" 200 21329 0.003326
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:01] "GET /blankImagePlaceholder.jpg HTTP/1.1" 200 3715 0.000999
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:root:None
+NoneType: None
+ERROR:root:Exception occurred
+Traceback (most recent call last):
+  File "D:\MuhammetAliVarlik\AI\GeometricShapeCounter\Geometric-Shape-Counter\main.py", line 37, in initializeImage
+    image, count, log, thresholdImage, grayImage = gsc.drawContours(
+  File "D:\MuhammetAliVarlik\AI\GeometricShapeCounter\Geometric-Shape-Counter\geometricshapecounter.py", line 315, in drawContours
+    self.__drawCircle(img, text=default["text"], x=x, y=y, fontScale=default["fontScale"],
+  File "D:\MuhammetAliVarlik\AI\GeometricShapeCounter\Geometric-Shape-Counter\geometricshapecounter.py", line 273, in __drawCircle
+    center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+ZeroDivisionError: float division by zero
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /index.html HTTP/1.1" 200 14571 0.001995
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /css/style.css HTTP/1.1" 200 7630 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /blankImagePlaceholder.jpg HTTP/1.1" 200 3715 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /eel.js HTTP/1.1" 200 6058 0.000000
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /js/main.js HTTP/1.1" 200 21329 0.001045
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /blankImagePlaceholder.jpg HTTP/1.1" 200 3715 0.001993
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:16] "GET /icon.png HTTP/1.1" 200 18273 0.006507
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+DEBUG:geventwebsocket.handler:Attempting to upgrade connection
+DEBUG:geventwebsocket.handler:WebSocket request accepted, switching protocols
+INFO:root:None
+NoneType: None
+INFO:root:{'triangle': 5, 'rectangle': 4, 'pentagon': 5, 'hexagon': 7, 'circle': 7}
+NoneType: None
+DEBUG:geventwebsocket.handler:Initializing WebSocket
+DEBUG:geventwebsocket.handler:Validating WebSocket request
+INFO:geventwebsocket.handler:127.0.0.1 - - [2023-12-30 20:38:31] "GET /output_log.txt HTTP/1.1" 200 4886 0.001109
+INFO:root:{'triangle': 5, 'rectangle': 4, 'pentagon': 5, 'hexagon': 7, 'circle': 7}
+NoneType: None
+DEBUG:geventwebsocket.handler:Closed WebSocket
+DEBUG:geventwebsocket.handler:Failed to write closing frame -> closing socket
+DEBUG:geventwebsocket.handler:Closed WebSocket
